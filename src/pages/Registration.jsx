@@ -15,6 +15,7 @@ const Registration = () => {
 
         try {
             await createUser(email, password);
+            console.log('created');
         }
         catch (err) {
             console.log(err)
@@ -43,7 +44,7 @@ const Registration = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" placeholder="password"
-                                name="password"
+
                                 className="input input-bordered" required
                                 onBlur={(e) => setPassword(e.target.value)} />
 

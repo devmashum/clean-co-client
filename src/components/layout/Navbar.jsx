@@ -2,8 +2,11 @@
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../utils/useAuth';
 
+
 const Navbar = () => {
-    const { user } = (useAuth);
+
+    const { user, logout } = useAuth();
+    console.log(user);
 
     return (
         <div className="w-full navbar bg-base-300">
@@ -21,7 +24,7 @@ const Navbar = () => {
                         <NavLink className={({ isActive }) => isActive ? 'btn btn-secondary' : 'btn btn-ghost '} to={'/contact'}>Contact</NavLink>
 
                         {
-                            user?.email ? (<button>Log Out</button>) :
+                            user?.email ? <button onClick={logout} className='btn btn-ghost'>Logout</button> :
                                 (<NavLink className={({ isActive }) => isActive ? 'btn btn-secondary' : 'btn btn-ghost'} to={'/login'}>Login</NavLink>)
                         }
 

@@ -6,7 +6,7 @@ import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import AdminLayout from "../components/AdminLayout";
 import AddService from "../pages/AddService";
-import { element } from "prop-types";
+
 import Home from "../pages/Home";
 import Error from "../pages/Error";
 
