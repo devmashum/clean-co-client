@@ -7,6 +7,7 @@ const Sidebar = () => {
             <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
             <ul className="menu p-4 w-80 min-h-full bg-base-200">
                 {/* Sidebar content here */}
+                <NavLink className={({ isActive }) => isActive ? 'btn btn-secondary' : 'btn btn-ghost '} to={'/'}>Home</NavLink>
                 <NavLink className={({ isActive }) => isActive ? 'btn btn-secondary' : 'btn btn-ghost '} to={'/about'}>About</NavLink>
                 <NavLink className={({ isActive }) => isActive ? 'btn btn-secondary' : 'btn btn-ghost '} to={'/contact'}>Contact</NavLink>
 

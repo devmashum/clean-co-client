@@ -1,7 +1,10 @@
-import React from 'react';
+
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../utils/useAuth';
 
 const Navbar = () => {
+    const { user } = (useAuth);
+
     return (
         <div className="w-full navbar bg-base-300">
             <div className='w-full max-w-[1200px] mx-auto'>
@@ -13,10 +16,14 @@ const Navbar = () => {
                 <div className="flex-1 text-6xl font-bold px-2 mx-2"><NavLink to={'/'}>Clean Co.</NavLink></div>
                 <div className="flex-none hidden lg:block">
                     <div className='flex gap-3'>
+                        <NavLink className={({ isActive }) => isActive ? 'btn btn-secondary' : 'btn btn-ghost '} to={'/'}>Home</NavLink>
                         <NavLink className={({ isActive }) => isActive ? 'btn btn-secondary' : 'btn btn-ghost '} to={'/about'}>About</NavLink>
                         <NavLink className={({ isActive }) => isActive ? 'btn btn-secondary' : 'btn btn-ghost '} to={'/contact'}>Contact</NavLink>
 
-                        <NavLink className={({ isActive }) => isActive ? 'btn btn-secondary' : 'btn btn-ghost'} to={'/login'}>Login</NavLink>
+                        {
+                            user?.email ? (<button>Log Out</button>) :
+                                (<NavLink className={({ isActive }) => isActive ? 'btn btn-secondary' : 'btn btn-ghost'} to={'/login'}>Login</NavLink>)
+                        }
 
                     </div>
                 </div>
